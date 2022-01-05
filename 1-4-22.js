@@ -25,7 +25,8 @@ function timeConversion(s) {
         
     }
 }
-console.log(timeConversion("12:40:22PM"));
+
+
 /*
  * Complete the 'miniMaxSum' function below.
  *
@@ -65,4 +66,28 @@ function plusMinus(arr) {
     for (let num of numbers){
         console.log((num / arrSize).toFixed(6));
     }
+}
+
+/*
+ * Complete the 'matchingStrings' function below.
+ *
+ * The function is expected to return an INTEGER_ARRAY.
+ * The function accepts following parameters:
+ *  1. STRING_ARRAY strings
+ *  2. STRING_ARRAY queries
+ */
+
+function matchingStrings(strings, queries) {
+    const countArr = [];
+    for(let qry of queries){
+        let count = 0;
+        let strIdx = strings.indexOf(qry);
+        while(strIdx > -1){
+            count++;
+            strings.splice(strIdx, 1);
+            strIdx = strings.indexOf(qry);
+        }
+        countArr.push(count);
+    }
+    return countArr;
 }
