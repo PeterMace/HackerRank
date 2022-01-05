@@ -1,4 +1,36 @@
-//Min, Max array
+/*
+ * Complete the 'timeConversion' function below.
+ *
+ * The function is expected to return a STRING.
+ * The function accepts STRING s as parameter.
+ */
+function timeConversion(s) {
+    const period = s.slice(-2);
+    const hour = parseInt(s.substring(0,2));
+    if(period == "AM"){
+        if(hour == 12){
+            return "00" + s.slice(2, -2) 
+        }
+        else{
+            return s.slice(0, -2) 
+        }
+    }
+    if(period == "PM"){
+        if(hour == 12){
+            return hour + s.slice(2, -2) 
+        }
+        else{
+            return (hour + 12) + s.slice(2, -2)  
+        }
+        
+    }
+}
+console.log(timeConversion("12:40:22PM"));
+/*
+ * Complete the 'miniMaxSum' function below.
+ *
+ * The function accepts INTEGER_ARRAY arr as parameter.
+ */
 function miniMaxSum(arr) {
     arr = arr.sort( (a,b) => {return a - b})
     const reducer = (previous, next) => { return previous + next};
@@ -10,35 +42,11 @@ function miniMaxSum(arr) {
 }
 
 
-
-'use strict';
-
-process.stdin.resume();
-process.stdin.setEncoding('utf-8');
-
-let inputString = '';
-let currentLine = 0;
-
-process.stdin.on('data', function(inputStdin) {
-    inputString += inputStdin;
-});
-
-process.stdin.on('end', function() {
-    inputString = inputString.split('\n');
-
-    main();
-});
-
-function readLine() {
-    return inputString[currentLine++];
-}
-
 /*
  * Complete the 'plusMinus' function below.
  *
  * The function accepts INTEGER_ARRAY arr as parameter.
  */
-
 function plusMinus(arr) {
     let positive = 0;
     let zeros = 0; 
@@ -58,13 +66,3 @@ function plusMinus(arr) {
         console.log((num / arrSize).toFixed(6));
     }
 }
-
-function main() {
-    const n = parseInt(readLine().trim(), 10);
-
-    const arr = readLine().replace(/\s+$/g, '').split(' ').map(arrTemp => parseInt(arrTemp, 10));
-
-    plusMinus(arr);
-}
-
-
