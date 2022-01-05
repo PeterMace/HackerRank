@@ -1,3 +1,16 @@
+//Min, Max array
+function miniMaxSum(arr) {
+    arr = arr.sort( (a,b) => {return a - b})
+    const reducer = (previous, next) => { return previous + next};
+    const minArr = arr.slice(0, 4);
+    const maxArr = arr.slice(-4);
+    const min = minArr.reduce(reducer);
+    const max = maxArr.reduce(reducer);
+    console.log(min , max)
+}
+
+
+
 'use strict';
 
 process.stdin.resume();
@@ -53,4 +66,5 @@ function main() {
 
     plusMinus(arr);
 }
+
 
