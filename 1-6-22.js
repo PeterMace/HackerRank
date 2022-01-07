@@ -49,3 +49,21 @@ function diagonalDifference(arr) {
     }
     return Math.abs(posDiagonal - negDiagonal)
 }
+/*
+ * Complete the 'countingSort' function below.
+ *
+ * The function is expected to return an INTEGER_ARRAY.
+ * The function accepts INTEGER_ARRAY arr as parameter.
+ */
+
+function countingSort(arr) {
+    const numCount = {};
+    const resultArr = [];
+    for (let number of arr){
+        numCount[number] ? numCount[number] += 1 : numCount[number] = 1;
+    }
+    for (let number of arr){
+        resultArr.push(numCount[number]) 
+    }
+    return resultArr;
+}
