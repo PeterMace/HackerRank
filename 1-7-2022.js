@@ -29,3 +29,14 @@ function pangrams(s) {
         return "not pangram";
     }
 }
+//string Xors in python
+def strings_xor(s, t):
+    res = ""
+    for i in range(len(s)):
+        if s[i] == t[i] and s[i] == '1':
+            res += '0';
+        elif s[i] != t[i] and (s[i] == '1' or t[i] == '1'):
+            res += '1';
+        else:
+            res += '0';
+    return res
