@@ -31,3 +31,21 @@ function lonelyinteger(a) {
     }
     return visited;
 }
+
+/*
+ * Complete the 'diagonalDifference' function below.
+ *
+ * The function is expected to return an INTEGER.
+ * The function accepts 2D_INTEGER_ARRAY arr as parameter.
+ */
+
+function diagonalDifference(arr) {
+    let posDiagonal = 0;
+    let negDiagonal = 0;
+    //diagonals
+    for(let i = 0; i < arr.length; i++){
+        posDiagonal += arr[i][i]
+        negDiagonal += arr[i][arr.length - 1 - i]
+    }
+    return Math.abs(posDiagonal - negDiagonal)
+}
