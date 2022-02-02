@@ -39,3 +39,27 @@ function getMin(s) {
     }
     return added + queue.length;
 }
+
+
+//Valid Email address
+([a-z])+\d{0,4}(@hackerrank.com)
+([a-z]){1,6}\d{0,4}(@hackerrank.com)
+
+
+//Profit Targets
+function stockPairs(stocksProfit, target) {
+    let pairs = 0;
+    const used = new Set();
+    while(stocksProfit.length > 2){
+        let current = stocksProfit.shift();
+        for(let stock of stocksProfit){
+            if(((target - stock) - current) == 0 && !(used.has(current))){
+                pairs++;
+                used.add(stock);
+                used.add(current);
+            }
+        }
+    }
+    console.log(used)
+    return pairs;
+}
